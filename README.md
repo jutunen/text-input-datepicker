@@ -3,6 +3,8 @@
 
 A web component that wraps a text input element and adds date-picker functionality to it.
 
+Live demo available [here](http://51.38.51.120/datepickerdemo/)
+
 ## Features
 Text-input-datepicker is a stand-alone vanilla JS web component that does not use shadow DOM. The component wraps a text input element and adds date-picker functionality to it. The calendar will appear when the input element gets focus.
 
@@ -83,7 +85,7 @@ sunday-first | First day of the calendar week | Sunday is first | Monday is firs
 persist-on-select | Calendar visibility after the date has been selected | Calendar won't disappear | Calendar disappears
 show-close-icon | Calendar close icon visibility | Icon is visible | Icon is hidden
 
-Examples:
+Usage examples:
 
    ```html
     <text-input-datepicker init-date='28.12.2005' sunday-first>
@@ -112,7 +114,7 @@ initDate       | String   | Initial date in the input field       |Date in "dd.m
 longPressThreshold       | Number   | Month/year switch long press threshold        |Milliseconds                     | 500
 longPressInterval       | Number   | Long press month/year switch interval        |Milliseconds                     | 150
 
-Example:
+Usage example:
 
    ```javascript
    var picker = document.createElement('text-input-datepicker')
@@ -154,7 +156,7 @@ Returns the date as standard JS date object.
 
 Returns null if the input field does not contain a valid date.
 
-Notice:
+**Notice:**
 
 Since datepicker returns the object date in local time, UTC getter methods should not be used when processing the returned date further. Neither Date.toJSON() nor Date.toISOString() methods should be used, as they return the date in UTC format too.
 ## Date format and validation
@@ -187,7 +189,7 @@ to this:
    ```javascript
    this.dispatchEvent(new Event('change'))
    ```
-Notice:
+**Notice:**
 
 The input element dispatches change events too. If datepicker and its input element both dispatch change events, the event handler must examine the event in further detail in order to determine its origin.
 ## Style and layout
