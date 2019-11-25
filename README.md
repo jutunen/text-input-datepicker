@@ -69,16 +69,17 @@ Component features include:
 
 Currently component has only one custom attribute that can be assigned a value in the HTML tag:
 
-Name            | Type      | Description             | Unit / Values                                | Default value
----             | ---       | ---                     | ---                                          | ---
-init-date       | String   | Initial date in the input field       |Date in "dd.mm.yyyy" format or<br>"current" to select current date                     | None
+Name            | Type      | Description             | Unit / Values      | Default value
+--------------  | --------- | ------------------------| -------------------| --------------
+init-date       | String    | Initial date in the input field | Date in "dd.mm.yyyy" format or<br>"current" to select current date                     | None
 
 
 Following component attributes are boolean attributes, also known as valueless attributes. The presence of a boolean attribute in the HTML tag represents the true value, and the absence of the attribute represents the false value.
-Name | Description | if attribute is defined | If attribute is not defined
--------|---------|--------|-------
-ignore-on-focus| Calendar appearance after the input element gets focus| Calendar won't appear| Calendar appears
-sunday-first|First day of the calendar week | Sunday is first | Monday is first
+
+Name   | Description | if attribute is defined | If attribute is not defined
+-------|-------------|-------------------------|----------------------------
+ignore-on-focus | Calendar appearance after the input element gets focus| Calendar won't appear| Calendar appears
+sunday-first | First day of the calendar week | Sunday is first | Monday is first
 persist-on-select | Calendar visibility after the date has been selected | Calendar won't disappear | Calendar disappears
 show-close-icon | Calendar close icon visibility | Icon is visible | Icon is hidden
 
@@ -123,15 +124,21 @@ Example:
    document.body.appendChild(picker)
    ```
 **Regarding dynamic and runtime usage of the component, custom attributes should always be set before the datepicker element is appended to DOM or initialized.**
+
 Although init() method can be called multiple times, not all attributes can be changed after the initial init.
+
 Regarding init-date (InitDate) attribute, notice that the initial date format is determined by _returnDateString() and _parseAndValidateInputStr() methods, see chapter Date format and validation below.
 
 ## Methods
 
 ### init()
-Initializes date-picker functionality. This method is called automatically when the datepicker element is appended to DOM. This method has no effect, if the element does not have an input element as a child. If the datepicker is appended to DOM before the input element is appended to datepicker, init() must be called to make datepicker work.
+Initializes date-picker functionality. This method is called automatically when the datepicker element is appended to DOM.
+
+This method has no effect, if the element does not have an input element as a child.
+If the datepicker is appended to DOM before the input element is appended to datepicker, init() must be called to make datepicker work.
 ### setFocusOnCal()
-The calendar will appear and get the focus when this method is called. On touch UIs this method can be used to prevent the keyboard from appearing, as the text input field won't get the focus. This method has no effect, if init() has not been called. If ignoreOnFocus has been set to true, this method is the only way to make the calendar appear.
+The calendar will appear and get the focus when this method is called. On touch UIs this method can be used to prevent the keyboard from appearing, as the text input field won't get the focus. 
+This method has no effect, if init() has not been called. If ignoreOnFocus has been set to true, this method is the only way to make the calendar appear.
 ### getDateString()
 Returns the date as string. Default format is "mm.dd.yyyy".
 Returns null if the input field does not contain a valid date.
