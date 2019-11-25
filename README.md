@@ -175,10 +175,10 @@ If the date format to be used is changed, then the validating method must be mod
 The validating method to be modified is *_parseAndValidateInputStr()* 
 
 It must return an object with either 1 or 4 properties:
-* valid - boolean value indicating whether the date string is valid or not
-* day - number value indicating the day of month (1 - 31) of the valid date string
-* month - number value indicating the month (0-11) of the valid date string
-* year - number value indicating the year of the valid date string
+* valid - a boolean value indicating whether the date string is valid or not
+* day - a number value indicating the day of month (1 - 31) of the valid date string
+* month - a number value indicating the month (0-11) of the valid date string
+* year - a number value indicating the year of the valid date string
 
 Methods *getDateString()* and *getDateObject()* can also be used for validating the date, see above.
 ## Events
