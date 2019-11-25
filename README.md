@@ -129,7 +129,7 @@ Usage example:
 
 Although *init()* method can be called multiple times, not all attributes can be changed after the initial init.
 
-Regarding init-date (InitDate) attribute, notice that the initial date format is determined by *_returnDateString()* and *_parseAndValidateInputStr()* methods, see chapter Date format and validation below.
+Regarding init-date (InitDate) attribute, notice that the initial date format is determined by *_returnDateString()* and *_parseAndValidateInputStr()* methods, see chapter **Date format and validation** below.
 
 ## Methods
 
@@ -168,7 +168,8 @@ When date is written to input field, it is validated automatically if datepicker
 
 If the date format to be used is changed, then the validating method must be modified also.
 
-The validating method to be modified is *_parseAndValidateInputStr()*
+The validating method to be modified is *_parseAndValidateInputStr()* 
+
 It must return an object with either 1 or 4 properties:
 * valid - boolean value indicating whether the date string is valid or not
 * day - number value indicating the day of month (1 - 31) of the valid date string
