@@ -74,7 +74,7 @@ Name            | Type      | Description             | Unit / Values      | Def
 init-date       | String    | Initial date in the input field | Date in "dd.mm.yyyy" format or<br>"current" to select current date                     | None
 
 
-Following component attributes are boolean attributes, also known as valueless attributes. The presence of a boolean attribute in the HTML tag represents the true value, and the absence of the attribute represents the false value.
+Following component attributes are boolean attributes, also known as valueless attributes. The presence of a boolean attribute in the HTML tag represents the true value, and the absence of the attribute represents the false value:
 
 Name   | Description | if attribute is defined | If attribute is not defined
 -------|-------------|-------------------------|----------------------------
@@ -135,9 +135,11 @@ Regarding init-date (InitDate) attribute, notice that the initial date format is
 Initializes date-picker functionality. This method is called automatically when the datepicker element is appended to DOM.
 
 This method has no effect, if the element does not have an input element as a child.
+
 If the datepicker is appended to DOM before the input element is appended to datepicker, init() must be called to make datepicker work.
 ### setFocusOnCal()
 The calendar will appear and get the focus when this method is called. 
+
 On touch UIs this method can be used to prevent the keyboard from appearing, as the text input field won't get the focus.
 
 This method has no effect, if init() has not been called. If ignoreOnFocus has been set to true, this method is the only way to make the calendar appear.
@@ -153,6 +155,7 @@ Returns the date as standard JS date object.
 Returns null if the input field does not contain a valid date.
 
 Notice:
+
 Since datepicker returns the object date in local time, UTC getter methods should not be used when processing the returned date further. Neither Date.toJSON() nor Date.toISOString() methods should be used, as they return the date in UTC format too.
 ## Date format and validation
 Default format is "mm.dd.yyyy".
@@ -185,9 +188,11 @@ to this:
    this.dispatchEvent(new Event('change'))
    ```
 Notice:
+
 The input element dispatches change events too. If datepicker and its input element both dispatch change events, the event handler must examine the event in further detail in order to determine its origin.
 ## Style and layout
-The style is defined in the HTML template string inside the component's contructor. Styling can be moved to an external CSS file by cutting and pasting everything that's inside style tags and then removing the void tags.
+The style is defined in the HTML template string inside the component's contructor.
+Styling can be moved to an external CSS file by cutting and pasting everything that's inside style tags and then removing the void tags.
 
 Calendar's adjacent month day numbers can be changed to invisible by replacing the color definition in .calAdjacentMonthDay with
 ```css
@@ -196,8 +201,11 @@ visibility:hidden;
 
 ## Building
 Unminified scripts in the dist folder can be used and modified as such, there are no build scripts available for them.
+
 Building is done by executing the minifier script minify.cmd, which is a Linux bash shell script.
+
 Minify.cmd can be found from dist folder.
+
 Building (minifying) requires terser command line tool to be installed. It can be installed with following command:
 ```console
  npm install terser -g
