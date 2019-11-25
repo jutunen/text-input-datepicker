@@ -3,7 +3,7 @@
 
 A web component that wraps a text input element and adds date-picker functionality to it.
 
-Live demo available [here](http://51.38.51.120/datepickerdemo/)
+Live demo available [here](http://51.38.51.120/datepickerdemo/).
 
 ## Features
 Text-input-datepicker is a stand-alone vanilla JS web component that does not use shadow DOM. The component wraps a text input element and adds date-picker functionality to it. The calendar will appear when the input element gets focus.
@@ -62,7 +62,7 @@ Component features include:
 
    ```javascript
    var picker = document.createElement('text-input-datepicker')
-   var input = document.createElement("input")
+   var input = document.createElement('input')
    input.setAttribute('type', 'text')
    picker.appendChild(input)
    document.body.appendChild(picker)
@@ -127,9 +127,9 @@ Usage example:
    ```
 **Regarding dynamic and runtime usage of the component, custom attributes should always be set before the datepicker element is appended to DOM or initialized.**
 
-Although init() method can be called multiple times, not all attributes can be changed after the initial init.
+Although *init()* method can be called multiple times, not all attributes can be changed after the initial init.
 
-Regarding init-date (InitDate) attribute, notice that the initial date format is determined by _returnDateString() and _parseAndValidateInputStr() methods, see chapter Date format and validation below.
+Regarding init-date (InitDate) attribute, notice that the initial date format is determined by *_returnDateString()* and *_parseAndValidateInputStr()* methods, see chapter Date format and validation below.
 
 ## Methods
 
@@ -138,19 +138,19 @@ Initializes date-picker functionality. This method is called automatically when 
 
 This method has no effect, if the element does not have an input element as a child.
 
-If the datepicker is appended to DOM before the input element is appended to datepicker, init() must be called to make datepicker work.
+If the datepicker is appended to DOM before the input element is appended to datepicker, *init()* must be called to make datepicker work.
 ### setFocusOnCal()
 The calendar will appear and get the focus when this method is called. 
 
 On touch UIs this method can be used to prevent the keyboard from appearing, as the text input field won't get the focus.
 
-This method has no effect, if init() has not been called. If ignoreOnFocus has been set to true, this method is the only way to make the calendar appear.
+This method has no effect, if *init()* has not been called. If *ignoreOnFocus* has been set to true, this method is the only way to make the calendar appear.
 ### getDateString()
 Returns the date as string. Default format is "mm.dd.yyyy".
 
 Returns null if the input field does not contain a valid date.
 
-Date format and validity is determined by _returnDateString() and _parseAndValidateInputStr() methods.
+Date format and validity is determined by *_returnDateString()* and *_parseAndValidateInputStr()* methods.
 ### getDateObject()
 Returns the date as standard JS date object.
 
@@ -158,30 +158,30 @@ Returns null if the input field does not contain a valid date.
 
 **Notice:**
 
-Since datepicker returns the object date in local time, UTC getter methods should not be used when processing the returned date further. Neither Date.toJSON() nor Date.toISOString() methods should be used, as they return the date in UTC format too.
+Since datepicker returns the object date in local time, UTC getter methods should not be used when processing the returned date further. Neither *Date.toJSON()* nor *Date.toISOString()* methods should be used, as they return the date in UTC format too.
 ## Date format and validation
 Default format is "mm.dd.yyyy".
 
-Date format can be changed by modifying _returnDateString() method.
+Date format can be changed by modifying *_returnDateString()* method.
 
 When date is written to input field, it is validated automatically if datepicker is initialized.
 
 If the date format to be used is changed, then the validating method must be modified also.
 
-The validating method to be modified is _parseAndValidateInputStr()
+The validating method to be modified is *_parseAndValidateInputStr()*
 It must return an object with either 1 or 4 properties:
 * valid - boolean value indicating whether the date string is valid or not
 * day - number value indicating the day of month (1 - 31) of the valid date string
 * month - number value indicating the month (0-11) of the valid date string
 * year - number value indicating the year of the valid date string
 
-Methods getDateString() and getDateObject() can also be used for validating the date, see above.
+Methods *getDateString()* and *getDateObject()* can also be used for validating the date, see above.
 ## Events
-If the input element loses focus and the date string is not valid, datepicker shall dispatch invalid event.
+If the input element loses focus and the date string is not valid, datepicker shall dispatch [invalid](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event) event.
 
 When the date string is changed to a new valid date or a new date is selected from the calendar, datepicker shall dispatch datechanged event.
 
-datechanged is a custom event. It can be replaced with a more standard change event by changing the following code line:
+datechanged is a custom event. It can be replaced with a more standard [change](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event) event by changing the following code line:
    ```javascript
    this.dispatchEvent(new CustomEvent('datechange'))
    ```
@@ -196,7 +196,7 @@ The input element dispatches change events too. If datepicker and its input elem
 The style is defined in the HTML template string inside the component's contructor.
 Styling can be moved to an external CSS file by cutting and pasting everything that's inside style tags and then removing the void tags.
 
-Calendar's adjacent month day numbers can be changed to invisible by replacing the color definition in .calAdjacentMonthDay with
+Calendar's adjacent month day numbers can be changed to invisible by replacing the color definition in *.calAdjacentMonthDay* with
 ```css
 visibility:hidden;
 ```
@@ -208,7 +208,7 @@ Building is done by executing the minifier script minify.cmd, which is a Linux b
 
 Minify.cmd can be found from dist folder.
 
-Building (minifying) requires terser command line tool to be installed. It can be installed with following command:
+Building (minifying) requires [terser](https://github.com/terser/terser) command line tool to be installed. It can be installed with following command:
 ```console
  npm install terser -g
    ```
