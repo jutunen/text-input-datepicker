@@ -133,7 +133,7 @@ Usage example:
 
 Although *init()* method can be called multiple times, not all attributes can be changed after the initial init.
 
-Regarding init-date (InitDate) attribute, notice that the initial date format is determined by *_returnDateString()* and *_parseAndValidateInputStr()* methods, see chapter **Date format and validation** below.
+Regarding *init-date* (*initDate*) attribute, notice that the initial date format is determined by *_returnDateString()* and *_parseAndValidateInputStr()* methods, see chapter **Date format and validation** below.
 
 ## Methods
 
@@ -184,9 +184,9 @@ Methods *getDateString()* and *getDateObject()* can also be used for validating 
 ## Events
 If the input element loses focus and the date string is not valid, datepicker shall dispatch [invalid](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event) event.
 
-When the date string is changed to a new valid date or a new date is selected from the calendar, datepicker shall dispatch datechanged event.
+When the date string is changed to a new valid date or a new date is selected from the calendar, datepicker shall dispatch *datechange* event.
 
-datechanged is a custom event. It can be replaced with a more standard [change](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event) event by changing the following code line:
+*datechange* is a custom event. It can be replaced with a more standard [change](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event) event by changing the following code line:
    ```javascript
    this.dispatchEvent(new CustomEvent('datechange'))
    ```
