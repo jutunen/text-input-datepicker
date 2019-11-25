@@ -137,22 +137,32 @@ Initializes date-picker functionality. This method is called automatically when 
 This method has no effect, if the element does not have an input element as a child.
 If the datepicker is appended to DOM before the input element is appended to datepicker, init() must be called to make datepicker work.
 ### setFocusOnCal()
-The calendar will appear and get the focus when this method is called. On touch UIs this method can be used to prevent the keyboard from appearing, as the text input field won't get the focus. 
+The calendar will appear and get the focus when this method is called. 
+On touch UIs this method can be used to prevent the keyboard from appearing, as the text input field won't get the focus.
+
 This method has no effect, if init() has not been called. If ignoreOnFocus has been set to true, this method is the only way to make the calendar appear.
 ### getDateString()
 Returns the date as string. Default format is "mm.dd.yyyy".
+
 Returns null if the input field does not contain a valid date.
+
 Date format and validity is determined by _returnDateString() and _parseAndValidateInputStr() methods.
 ### getDateObject()
 Returns the date as standard JS date object.
+
 Returns null if the input field does not contain a valid date.
+
 Notice:
 Since datepicker returns the object date in local time, UTC getter methods should not be used when processing the returned date further. Neither Date.toJSON() nor Date.toISOString() methods should be used, as they return the date in UTC format too.
 ## Date format and validation
 Default format is "mm.dd.yyyy".
+
 Date format can be changed by modifying _returnDateString() method.
+
 When date is written to input field, it is validated automatically if datepicker is initialized.
+
 If the date format to be used is changed, then the validating method must be modified also.
+
 The validating method to be modified is _parseAndValidateInputStr()
 It must return an object with either 1 or 4 properties:
 * valid - boolean value indicating whether the date string is valid or not
