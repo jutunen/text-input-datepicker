@@ -261,7 +261,7 @@ class Datepicker extends HTMLElement {
     }
   }
 
-  _blurHandler (e) {
+  _blurHandler () {
     // When the input element loses focus due to click on calContainer, new focus won't be directly set to calContainer, it is set to body.
     // After calContainer onclick, focus will be on body unless following delay is introduced:
     setTimeout(() => { checkActiveElement(this) }, 0)
@@ -303,23 +303,23 @@ class Datepicker extends HTMLElement {
     }
   }
 
-  _startLongPressAction (e) {
-    this._longPressIntervalIds.push(setInterval(() => { this._controlKeyDownEventHandler(e) }, this.longPressInterval))
-    this.querySelector('#' + e.target.id).onclick = () => { this._onClickHandlerAfterLongPress(e, this) }
+  _startLongPressAction (event) {
+    this._longPressIntervalIds.push(setInterval(() => { this._controlKeyDownEventHandler(event) }, this.longPressInterval))
+    this.querySelector('#' + event.target.id).onclick = () => { this._onClickHandlerAfterLongPress(event, this) }
   }
 
   // For better UX, after long press, onclick must be discarded once,
   // thus do nothing with the event and set clickhandler back to the real one:
-  _onClickHandlerAfterLongPress (e, ctx) {
-    ctx.querySelector('#' + e.target.id).onclick = ctx._controlKeyDownEventHandler
-    ctx.querySelector('#' + e.target.id).onclick = ctx.querySelector('#' + e.target.id).onclick.bind(ctx)
+  _onClickHandlerAfterLongPress (event, ctx) {
+    ctx.querySelector('#' + event.target.id).onclick = ctx._controlKeyDownEventHandler
+    ctx.querySelector('#' + event.target.id).onclick = ctx.querySelector('#' + event.target.id).onclick.bind(ctx)
   }
 
-  _mouseDownEventHandler (e) {
-    this._longPressTimerIds.push(setTimeout(() => { this._startLongPressAction(e) }, this.longPressThreshold))
+  _mouseDownEventHandler (event) {
+    this._longPressTimerIds.push(setTimeout(() => { this._startLongPressAction(event) }, this.longPressThreshold))
   }
 
-  _mouseUpEventHandler (e) {
+  _mouseUpEventHandler () {
     this._longPressTimerIds.forEach(clearTimeout)
     this._longPressTimerIds = []
     this._longPressIntervalIds.forEach(clearInterval)
@@ -365,7 +365,7 @@ class Datepicker extends HTMLElement {
     if (month < 1 || month > 12) {
       return false
     }
-    var last_day_of_month = this._days_in_month(month, year)
+    var last_day_of_month = this._daysInMonth(month, year)
     if (day < 1 || day > last_day_of_month) {
       return false
     }
@@ -430,12 +430,12 @@ class Datepicker extends HTMLElement {
   }
 
   _renderCalendar () {
-    var d = new Date(this.displayedYear, this.displayedMonth)
-    d.setDate(1)
-    this._setCalTitle(d)
+    var tempDate = new Date(this.displayedYear, this.displayedMonth)
+    tempDate.setDate(1)
+    this._setCalTitle(tempDate)
     var dayNumbers = []
     var adjacentMonthDays = []
-    this._generateDayArray(d, dayNumbers, adjacentMonthDays)
+    this._generateDayArray(tempDate, dayNumbers, adjacentMonthDays)
     var entries = this.calContainer.querySelectorAll('.calDay').entries()
     var entry = entries.next()
     while (entry.done === false) {
@@ -545,12 +545,12 @@ class Datepicker extends HTMLElement {
     var dateDay = date.getDay()
     var dateMonth = date.getMonth() + 1
     var dateYear = date.getFullYear()
-    var daysInMonth = this._days_in_month(dateMonth, dateYear)
+    var daysInMonth = this._daysInMonth(dateMonth, dateYear)
 
     date.setDate(date.getDate() - 1)
     var prevMonth = date.getMonth() + 1
     var prevMonthYear = date.getFullYear()
-    var daysInPrevMonth = this._days_in_month(prevMonth, prevMonthYear)
+    var daysInPrevMonth = this._daysInMonth(prevMonth, prevMonthYear)
 
     // prev month day filling:
     if (this.sundayFirst) {
@@ -589,18 +589,18 @@ class Datepicker extends HTMLElement {
     }
   }
 
-  _is_it_leap_year (year) {
+  _isItLeapYear (year) {
     return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)
   }
 
-  _days_in_month (month, year) {
+  _daysInMonth (month, year) {
     if (month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month === 10 || month === 12) {
       return 31
     } else if (month === 4 || month === 6 || month === 9 || month === 11) {
       return 30
-    } else if (month === 2 && this._is_it_leap_year(year)) {
+    } else if (month === 2 && this._isItLeapYear(year)) {
       return 29
-    } else if (month === 2 && !(this._is_it_leap_year(year))) {
+    } else if (month === 2 && !(this._isItLeapYear(year))) {
       return 28
     }
   }
