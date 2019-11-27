@@ -26,15 +26,15 @@ export class Datepicker extends HTMLElement {
       display:flex;
       align-items:center;
       justify-content:space-around;
+      margin-top:5px;
     }
     #calGrid {
       display:grid;
       grid-template-columns:auto auto auto auto auto auto auto;
       padding:10px;
-      width:400px;
     }
-    .calDayName, .calDayStyle {
-      padding:10px;
+    .calDayName, .calDayStyle, .calAdjacentMonthDay, #calTitle {
+      padding:5px;
       font-size:20px;
       text-align:center;
     }
@@ -48,22 +48,17 @@ export class Datepicker extends HTMLElement {
     }
     .calAdjacentMonthDay {
       color:lightgray;
-      padding:10px;
-      font-size:20px;
-      text-align:center;
     }
     .calSelectedDay {
       color:red;
       font-weight:bold;
     }
     #calTitle {
-      font-size:20px;
-      text-align:center;
       width:110px;
     }
     .calCtrl {
       display:inline;
-      font-size:35px;
+      font-size:20px;
       user-select:none;
       padding:0px 8px;
     }
@@ -432,7 +427,7 @@ export class Datepicker extends HTMLElement {
   _renderCalendar () {
     var tempDate = new Date(this.displayedYear, this.displayedMonth)
     tempDate.setDate(1)
-    this._setCalTitle(tempDate)
+    this.calTitle.innerHTML = this.monthNames[this.displayedMonth] + ' ' + this.displayedYear
     var dayNumbers = []
     var adjacentMonthDays = []
     this._generateDayArray(tempDate, dayNumbers, adjacentMonthDays)
@@ -517,12 +512,6 @@ export class Datepicker extends HTMLElement {
     var month = date.getMonth() + 1
     var day = date.getDate()
     return day + '.' + month + '.' + year
-  }
-
-  _setCalTitle (date) {
-    var dateMonth = date.getMonth()
-    var dateYear = date.getFullYear()
-    this.calTitle.innerHTML = this.monthNames[dateMonth] + ' ' + dateYear
   }
 
   _populateDayNames () {
