@@ -201,6 +201,21 @@ The input element dispatches change events too. If datepicker and its input elem
 The style is defined in the HTML template string inside the component's contructor.
 Styling can be moved to an external CSS file by cutting and pasting everything that's inside style tags and then removing the void tags.
 
+Calendar width and height can be adjusted by modifying font-sizes and paddings:
+```css
+.calDayName, .calDayStyle, .calAdjacentMonthDay, #calTitle {
+  padding:5px;
+  font-size:20px;
+  text-align:center;
+}
+.calCtrl {
+  display:inline;
+  font-size:20px;
+  user-select:none;
+  padding:0px 8px;
+}
+```
+
 Calendar's adjacent month day numbers can be changed to invisible by replacing the color definition in *.calAdjacentMonthDay* with
 ```css
 visibility:hidden;
