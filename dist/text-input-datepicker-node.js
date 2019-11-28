@@ -57,10 +57,9 @@ export class Datepicker extends HTMLElement {
       width:110px;
     }
     .calCtrl {
-      display:inline;
       font-size:20px;
-      user-select:none;
       padding:0px 8px;
+      user-select:none;
     }
     </style>
     <div id="calContainer" tabindex="0">
