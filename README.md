@@ -209,10 +209,9 @@ Calendar width and height can be adjusted by modifying font-sizes and paddings:
   text-align:center;
 }
 .calCtrl {
-  display:inline;
   font-size:20px;
-  user-select:none;
   padding:0px 8px;
+  user-select:none;
 }
 ```
 
