@@ -231,7 +231,8 @@ Building (minifying) requires [terser](https://github.com/terser/terser) command
 ```console
  npm install terser -g
    ```
-
+## Contributing
+Questions, suggestions and bug reports are welcome. Safari testing would be nice.
 
 ## License
 Copyright (c) 2019 Jussi Utunen
