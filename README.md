@@ -3,6 +3,8 @@
 [![minified](https://badgen.net/badge/minified/9.4%20kB/blue)](https://badgen.net/badge/minified/9.4%20kB/blue)
 [![minified & compressed](https://badgen.net/badge/minified%20&%20compressed/3.1%20kB/blue)](https://badgen.net/badge/minified%20&%20compressed/3.1%20kB/blue)
 
+# Note! This project has been migrated to https://github.com/vanillawc/wc-datepicker. Text-input-datepicker won't be maintained anymore. Please use wc-datepicker instead.
+
 # text-input-datepicker
 
 A web component that wraps a text input element and adds date-picker functionality to it.
@@ -144,7 +146,7 @@ This method has no effect, if the element does not have an input element as a ch
 
 If the datepicker is appended to DOM before the input element is appended to datepicker, *init()* must be called to make datepicker work.
 ### setFocusOnCal()
-The calendar will appear and get the focus when this method is called. 
+The calendar will appear and get the focus when this method is called.
 
 On touch UIs this method can be used to prevent the keyboard from appearing, as the text input field won't get the focus.
 
@@ -172,7 +174,7 @@ When date is written to input field, it is validated automatically if datepicker
 
 If the date format to be used is changed, then the validating method must be modified also.
 
-The validating method to be modified is *_parseAndValidateInputStr()* 
+The validating method to be modified is *_parseAndValidateInputStr()*
 
 It must return an object with either 1 or 4 properties:
 * valid - a boolean value indicating whether the date string is valid or not
