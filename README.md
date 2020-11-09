@@ -1,15 +1,9 @@
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/text-input-datepicker)
-[![npm version](https://badge.fury.io/js/text-input-datepicker.svg)](https://badge.fury.io/js/text-input-datepicker)
-[![minified](https://badgen.net/badge/minified/9.4%20kB/blue)](https://badgen.net/badge/minified/9.4%20kB/blue)
-[![minified & compressed](https://badgen.net/badge/minified%20&%20compressed/3.1%20kB/blue)](https://badgen.net/badge/minified%20&%20compressed/3.1%20kB/blue)
 
 # Note! This project has been migrated to https://github.com/vanillawc/wc-datepicker. Text-input-datepicker won't be maintained anymore. Please use wc-datepicker instead.
 
 # text-input-datepicker
 
 A web component that wraps a text input element and adds date-picker functionality to it.
-
-Live demo available [here](http://51.38.51.120/datepickerdemo/).
 
 ## Features
 Text-input-datepicker is a stand-alone vanilla JS web component that does not use shadow DOM. The component wraps a text input element and adds date-picker functionality to it. The calendar will appear when the input element gets focus.
@@ -46,33 +40,6 @@ Component features include:
       <input type='text'>
     </text-input-datepicker>
     ```
-## Including the component from NPM
-
-1. Install and import polyfill, this is not needed for modern browsers:
-
-   See https://www.npmjs.com/package/@webcomponents/custom-elements
-
-2. Install text-input-datepicker NPM package:
-
-    ```console
-    npm i text-input-datepicker
-    ```
-
-3. Import custom element:
-
-    ```javascript
-    import 'text-input-datepicker'
-    ```
-
-4. Start using it:
-
-   ```javascript
-   var picker = document.createElement('text-input-datepicker')
-   var input = document.createElement('input')
-   input.setAttribute('type', 'text')
-   picker.appendChild(input)
-   document.body.appendChild(picker)
-   ```
 ## Attributes
 
 Currently component has only one custom attribute that can be assigned a value in the HTML tag:
